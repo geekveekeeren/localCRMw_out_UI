@@ -1,6 +1,6 @@
 package practice;
 
-import java.io.File;
+
 import java.io.FileWriter;
 import java.util.Scanner;                           //input utils
 import java.io.PrintWriter;                         //input utils
@@ -13,7 +13,7 @@ public class List {
 
         Scanner in = new Scanner(System.in);        //scanner
 
-        boolean exit = true;
+
 
         while (true)
         {
@@ -21,22 +21,22 @@ public class List {
 
             try (PrintWriter printer = new PrintWriter(new FileWriter("userInfo.txt", true))) {
 
-                printer.printf("Имя клиента: %s\n", userData[0]);
-                printer.printf("Имя магазина: %s\n", userData[1]);
-                printer.printf("Время звонка: %s\n", userData[2]);
-                printer.printf("Дата звонка: %s\n", userData[3]);
+                printer.printf("Client name: %s\n", userData[0]);
+                printer.printf("Store name: %s\n", userData[1]);
+                printer.printf("Preferred call time: %s\n", userData[2]);
+                printer.printf("Preferred call date: %s\n", userData[3]);
                 printer.println("----------------------------");
 
-                System.out.print("Для выхода из программы напишите ВЫХОД. Если планируете продолжить работу - нажмите Enter");
+                System.out.print("To exit the program, type exit. If you want to continue working, press Enter.");
 
                 }
                     catch (IOException e) {
 
-                    System.out.println("Ошибка в работе программы, номер ошибки: " + e.getMessage());
+                    System.out.println("Error! error number: " + e.getMessage());
 
             }
-            String choise = in.nextLine();
-            if (choise.equalsIgnoreCase("выход")){
+            String choose = in.nextLine();
+            if (choose.equalsIgnoreCase("exit")){
                 break;
             }
         }
@@ -49,16 +49,16 @@ public class List {
         String time;                                //var
         String date;                                //var
 
-        System.out.print("Имя клиента: ");
+        System.out.print("Client name: ");
         name = in.nextLine();
 
-        System.out.print("Название организации: ");
+        System.out.print("Store name: ");
         org = in.nextLine();
 
-        System.out.print("Время звонка: ");
+        System.out.print("Preferred call time: ");
         time = in.nextLine();
 
-        System.out.print("Дата звонка: ");
+        System.out.print("Preferred call date: ");
         date = in.nextLine();
 
         return new String[] {name, org, time, date};
